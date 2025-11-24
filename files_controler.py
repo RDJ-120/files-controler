@@ -36,7 +36,6 @@ class Path:
 
 
 class File:
-
     @staticmethod
     def read(filepath, filename):
         if not os.path.exists(filepath):
@@ -47,8 +46,8 @@ class File:
         if not os.path.exists(full):
             raise FileNotFoundError(f"{filename} Not Found")
 
-        with open(full, "r") as file:
-            return file.read()
+        with open(full, "r") as f:
+            return f.read()
 
 
     @staticmethod
