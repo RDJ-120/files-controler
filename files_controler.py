@@ -2,11 +2,15 @@ import os
 import shutil
 from datetime import datetime
 
-class PathError(Exception): pass
-class FilePermissionError(Exception): pass
+class PathError(Exception):
+    pass
+
+class FilePermissionError(Exception):
+    pass
 
 
 class Info:
+    @staticmethod
     def help():
         print("""Information about the module
 
@@ -23,6 +27,7 @@ The module contains 7 main functions:
 
 
 class Path:
+    @staticmethod
     def chdir(path):
         if os.path.exists(path):
             os.chdir(path)
@@ -31,6 +36,20 @@ class Path:
 
 
 class File:
+
+    @staticmethod
+    def read(filepath, filename):
+        if not os.path.exists(filepath):
+            raise PathError(f"Path {filepath} Not Found")
+
+        full = os.path.join(filepath, filename)
+
+        if not os.path.exists(full):
+            raise FileNotFoundError(f"{filename} Not Found")
+
+        with open(full, "r") as file:
+            return file.read()
+
 
     @staticmethod
     def write(filepath, filename, text):
