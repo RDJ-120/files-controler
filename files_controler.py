@@ -23,6 +23,7 @@ The module contains 7 main functions:
 5. File.delete(filepath, filename)
 6. File.copy(oldpath, newpath)
 7. File.move(oldpath, newpath)
+8. File.read(filepath, filename)
 """)
 
 
